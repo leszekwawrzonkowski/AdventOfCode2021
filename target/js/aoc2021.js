@@ -1,11 +1,12 @@
+"use strict";
 function solvePuzzle(puzzleText, puzzleNumber) {
     switch (puzzleNumber) {
         case "D1P1":
             // How many measurements are larger than the previous measurement?
             {
-                var puzzleArray = puzzleInputToNumberArray(puzzleText);
-                var numberOfIncreases = 0;
-                for (var i = 1; i < puzzleArray.length; i++) {
+                let puzzleArray = puzzleInputToNumberArray(puzzleText);
+                let numberOfIncreases = 0;
+                for (let i = 1; i < puzzleArray.length; i++) {
                     if (puzzleArray[i] > puzzleArray[i - 1])
                         numberOfIncreases++;
                 }
@@ -14,10 +15,10 @@ function solvePuzzle(puzzleText, puzzleNumber) {
         case "D1P2":
             // Count the number of times the sum of measurements in this sliding three-measurement window increases from the previous sum
             {
-                var puzzleArray = puzzleInputToNumberArray(puzzleText);
-                var numberOfIncreases = 0;
+                let puzzleArray = puzzleInputToNumberArray(puzzleText);
+                let numberOfIncreases = 0;
                 // TODO: think about more elegant implementation of the "sliding window" check
-                for (var i = 3; i < puzzleArray.length; i++) {
+                for (let i = 3; i < puzzleArray.length; i++) {
                     if ((puzzleArray[i - 2] + puzzleArray[i - 1] + puzzleArray[i]) > ((puzzleArray[i - 3] + puzzleArray[i - 2] + puzzleArray[i - 1])))
                         numberOfIncreases++;
                 }
@@ -27,15 +28,15 @@ function solvePuzzle(puzzleText, puzzleNumber) {
             // Calculate the horizontal position and depth you would have after following the planned course. 
             // What do you get if you multiply your final horizontal position by your final depth?
             {
-                var SubmarinePosition = /** @class */ (function () {
-                    function SubmarinePosition() {
+                class SubmarinePosition {
+                    constructor() {
                         this.horizontal = 0;
                         this.depth = 0;
                     }
-                    SubmarinePosition.prototype.changePosition = function (commandAndUnit) {
-                        var commandAndUnitElements = commandAndUnit.split(" ");
-                        var command = commandAndUnitElements[0];
-                        var unit = Number(commandAndUnitElements[1]);
+                    changePosition(commandAndUnit) {
+                        let commandAndUnitElements = commandAndUnit.split(" ");
+                        const command = commandAndUnitElements[0];
+                        let unit = Number(commandAndUnitElements[1]);
                         switch (command) {
                             case "forward":
                                 this.horizontal += unit;
@@ -47,30 +48,29 @@ function solvePuzzle(puzzleText, puzzleNumber) {
                                 this.depth -= unit;
                                 break;
                         }
-                    };
-                    return SubmarinePosition;
-                }());
-                var puzzleArray = puzzleInputToStringArray(puzzleText);
-                var submarinePosition_1 = new SubmarinePosition();
-                puzzleArray.forEach(function (puzzle) {
-                    submarinePosition_1.changePosition(puzzle);
+                    }
+                }
+                let puzzleArray = puzzleInputToStringArray(puzzleText);
+                let submarinePosition = new SubmarinePosition();
+                puzzleArray.forEach(puzzle => {
+                    submarinePosition.changePosition(puzzle);
                 });
-                return String(submarinePosition_1.depth * submarinePosition_1.horizontal);
+                return String(submarinePosition.depth * submarinePosition.horizontal);
             }
         case "D2P2":
             // Calculate the horizontal position and depth you would have after following the planned course. 
             // What do you get if you multiply your final horizontal position by your final depth?
             {
-                var SubmarinePosition = /** @class */ (function () {
-                    function SubmarinePosition() {
+                class SubmarinePosition {
+                    constructor() {
                         this.horizontal = 0;
                         this.depth = 0;
                         this.aim = 0;
                     }
-                    SubmarinePosition.prototype.changePosition = function (commandAndUnit) {
-                        var commandAndUnitElements = commandAndUnit.split(" ");
-                        var command = commandAndUnitElements[0];
-                        var unit = Number(commandAndUnitElements[1]);
+                    changePosition(commandAndUnit) {
+                        let commandAndUnitElements = commandAndUnit.split(" ");
+                        const command = commandAndUnitElements[0];
+                        let unit = Number(commandAndUnitElements[1]);
                         switch (command) {
                             case "forward":
                                 this.horizontal += unit;
@@ -83,15 +83,43 @@ function solvePuzzle(puzzleText, puzzleNumber) {
                                 this.aim -= unit;
                                 break;
                         }
-                    };
-                    return SubmarinePosition;
-                }());
-                var puzzleArray = puzzleInputToStringArray(puzzleText);
-                var submarinePosition_2 = new SubmarinePosition();
-                puzzleArray.forEach(function (puzzle) {
-                    submarinePosition_2.changePosition(puzzle);
+                    }
+                }
+                let puzzleArray = puzzleInputToStringArray(puzzleText);
+                let submarinePosition = new SubmarinePosition();
+                puzzleArray.forEach(puzzle => {
+                    submarinePosition.changePosition(puzzle);
                 });
-                return String(submarinePosition_2.depth * submarinePosition_2.horizontal);
+                return String(submarinePosition.depth * submarinePosition.horizontal);
+            }
+        case "D3P1":
+            // Use the binary numbers in your diagnostic report to calculate the gamma rate and epsilon rate, then multiply them together.
+            {
+                let puzzleArray = puzzleInputToStringArray(puzzleText);
+                let onesCounters = Array(puzzleArray[0].length).fill(0);
+                let zerosCounters = Array(puzzleArray[0].length).fill(0);
+                puzzleArray.forEach(puzzle => {
+                    let bitNums = Array.from(puzzle);
+                    for (let i = 0; i < bitNums.length; i++) {
+                        if (bitNums[i] === "1")
+                            onesCounters[i]++;
+                        else
+                            zerosCounters[i]++;
+                    }
+                });
+                let gammaRate = "";
+                let epsilonRate = "";
+                for (let i = 0; i < onesCounters.length; i++) {
+                    if (onesCounters[i] > zerosCounters[i]) {
+                        gammaRate += "1";
+                        epsilonRate += "0";
+                    }
+                    else {
+                        gammaRate += "0";
+                        epsilonRate += "1";
+                    }
+                }
+                return String(parseInt(gammaRate, 2) * parseInt(epsilonRate, 2));
             }
     }
     return "not yet solved !!!";

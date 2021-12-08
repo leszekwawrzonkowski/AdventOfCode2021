@@ -40,6 +40,14 @@
                   <button type="button" class="btn btn-primary" id="btn-D2P2">Day 2 Part 2</button>
                 </div>
               </div>
+              <div class="row py-2">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                  <button type="button" class="btn btn-primary" id="btn-D3P1">Day 3 Part 1</button>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                  <button type="button" class="btn btn-primary" id="btn-D3P2">Day 3 Part 2</button>
+                </div>
+              </div>
             </div>
             <div class="col">
               <textarea class="form-control" id="textarea-task-output" rows="3" placeholder="Task output will be shown here ..." disabled readonly></textarea>
@@ -68,6 +76,12 @@
   });
   document.getElementById('btn-D2P2').addEventListener('click', function (event) {
     document.getElementById('textarea-task-output').value = solvePuzzle(document.getElementById('textarea-task-input').value, "D2P2");
+  });
+  document.getElementById('btn-D3P1').addEventListener('click', function (event) {
+    document.getElementById('textarea-task-output').value = solvePuzzle(document.getElementById('textarea-task-input').value, "D3P1");
+  });
+  document.getElementById('btn-D3P2').addEventListener('click', function (event) {
+    document.getElementById('textarea-task-output').value = solvePuzzle(document.getElementById('textarea-task-input').value, "D3P2");
   });
 </script>
 
