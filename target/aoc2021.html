@@ -24,12 +24,20 @@
               <textarea class="form-control" id="textarea-task-input" rows="15" placeholder="Place task input here ..."></textarea>
             </div>
             <div class="col">
-              <div class="row">
+              <div class="row py-2">
                 <div class="d-grid gap-2 col-6 mx-auto">
                   <button type="button" class="btn btn-primary" id="btn-D1P1">Day 1 Part 1</button>
                 </div>
                 <div class="d-grid gap-2 col-6 mx-auto">
                   <button type="button" class="btn btn-primary" id="btn-D1P2">Day 1 Part 2</button>
+                </div>
+              </div>
+              <div class="row py-2">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                  <button type="button" class="btn btn-primary" id="btn-D2P1">Day 2 Part 1</button>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                  <button type="button" class="btn btn-primary" id="btn-D2P2">Day 2 Part 2</button>
                 </div>
               </div>
             </div>
@@ -54,6 +62,12 @@
   });
   document.getElementById('btn-D1P2').addEventListener('click', function (event) {
     document.getElementById('textarea-task-output').value = solvePuzzle(document.getElementById('textarea-task-input').value, "D1P2");
+  });
+  document.getElementById('btn-D2P1').addEventListener('click', function (event) {
+    document.getElementById('textarea-task-output').value = solvePuzzle(document.getElementById('textarea-task-input').value, "D2P1");
+  });
+  document.getElementById('btn-D2P2').addEventListener('click', function (event) {
+    document.getElementById('textarea-task-output').value = solvePuzzle(document.getElementById('textarea-task-input').value, "D2P2");
   });
 </script>
 
