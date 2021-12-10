@@ -1,2 +1,8 @@
+### build as module for tests ###
+build/
+
+### node modules ###
+node_modules/
+
 ### TS tmp files ###
-.aoc2021.tsbuildinfo
+.aoc2021*
