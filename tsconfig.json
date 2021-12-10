@@ -3,8 +3,9 @@
     "compilerOptions": {
       "incremental": true,
       "target": "es2017",
-      "outDir": "target/js",
-      "rootDir": "src",
+      "outFile": "target/js/aoc2021.js",
+      "tsBuildInfoFile": ".aoc2021.tsbuildinfo",
+      "rootDir": "src/ts",
   
       "strict": true /* Enable all strict type-checking options. */,
   
