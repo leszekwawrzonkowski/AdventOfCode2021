@@ -1,6 +1,7 @@
 import { solveD1P1, solveD1P2 } from "./day1";
 import { solveD2P1, solveD2P2 } from "./day2";
 import { solveD3P1, solveD3P2 } from "./day3";
+import { solveD4P1, solveD4P2 } from "./day4";
 
 function solvePuzzle(puzzleText: string, puzzleNumber: string | null): string {
     switch (puzzleNumber) {
@@ -16,6 +17,10 @@ function solvePuzzle(puzzleText: string, puzzleNumber: string | null): string {
             return solveD3P1(puzzleText);
         case "puzzle-D3P2":
             return solveD3P2(puzzleText);
+        case "puzzle-D4P1":
+            return solveD4P1(puzzleText);
+        case "puzzle-D4P2":
+            return solveD4P2(puzzleText);
     }
 
     return "not yet solved !!!";

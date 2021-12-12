@@ -4,7 +4,7 @@ export function solveD3P1(puzzleText) {
     let puzzleArray = puzzleInputToStringArray(puzzleText);
     let onesCounters = Array(puzzleArray[0].length).fill(0);
     let zerosCounters = Array(puzzleArray[0].length).fill(0);
-    puzzleArray.forEach(puzzle => {
+    for (let puzzle of puzzleArray) {
         let bitNums = Array.from(puzzle);
         for (let i = 0; i < bitNums.length; i++) {
             if (bitNums[i] === "1")
@@ -12,7 +12,7 @@ export function solveD3P1(puzzleText) {
             else
                 zerosCounters[i]++;
         }
-    });
+    }
     let gammaRate = "";
     let epsilonRate = "";
     for (let i = 0; i < onesCounters.length; i++) {
@@ -29,40 +29,6 @@ export function solveD3P1(puzzleText) {
 }
 // Verify the life support rating, which can be determined by multiplying the oxygen generator rating by the CO2 scrubber rating.
 export function solveD3P2(puzzleText) {
-    let BitCriteria;
-    (function (BitCriteria) {
-        BitCriteria[BitCriteria["Oxygen"] = 0] = "Oxygen";
-        BitCriteria[BitCriteria["Co2"] = 1] = "Co2";
-    })(BitCriteria || (BitCriteria = {}));
-    function discardArrayElemets(initArray, bitNo, criteria) {
-        let wantedValue;
-        let onesCounter = 0;
-        let zerosCounter = 0;
-        initArray.forEach(puzzle => {
-            let bitNums = Array.from(puzzle);
-            if (bitNums[bitNo] === "1")
-                onesCounter++;
-            else
-                zerosCounter++;
-        });
-        if (criteria === BitCriteria.Oxygen) {
-            wantedValue = "1";
-            if (zerosCounter > onesCounter)
-                wantedValue = "0";
-        }
-        else if (criteria === BitCriteria.Co2) {
-            wantedValue = "0";
-            if (zerosCounter > onesCounter)
-                wantedValue = "1";
-        }
-        let finalArray = new Array();
-        initArray.forEach(puzzle => {
-            let bitNums = Array.from(puzzle);
-            if (bitNums[bitNo] === wantedValue)
-                finalArray.push(puzzle);
-        });
-        return finalArray;
-    }
     let puzzleArray = puzzleInputToStringArray(puzzleText);
     let bitIterator = 0;
     let inputArray = puzzleArray;
@@ -79,4 +45,38 @@ export function solveD3P2(puzzleText) {
     }
     let co2ScrubberRating = inputArray[0];
     return String(parseInt(oxygenGeneratorRating, 2) * parseInt(co2ScrubberRating, 2));
+}
+var BitCriteria;
+(function (BitCriteria) {
+    BitCriteria[BitCriteria["Oxygen"] = 0] = "Oxygen";
+    BitCriteria[BitCriteria["Co2"] = 1] = "Co2";
+})(BitCriteria || (BitCriteria = {}));
+function discardArrayElemets(initArray, bitNo, criteria) {
+    let wantedValue = "0";
+    let onesCounter = 0;
+    let zerosCounter = 0;
+    for (let puzzle of initArray) {
+        let bitNums = Array.from(puzzle);
+        if (bitNums[bitNo] === "1")
+            onesCounter++;
+        else
+            zerosCounter++;
+    }
+    if (criteria === BitCriteria.Oxygen) {
+        wantedValue = "1";
+        if (zerosCounter > onesCounter)
+            wantedValue = "0";
+    }
+    else if (criteria === BitCriteria.Co2) {
+        wantedValue = "0";
+        if (zerosCounter > onesCounter)
+            wantedValue = "1";
+    }
+    let finalArray = new Array();
+    for (let puzzle of initArray) {
+        let bitNums = Array.from(puzzle);
+        if (bitNums[bitNo] === wantedValue)
+            finalArray.push(puzzle);
+    }
+    return finalArray;
 }

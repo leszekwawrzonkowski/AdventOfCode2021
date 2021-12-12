@@ -2,15 +2,15 @@ import test from 'ava';
 import { solveD1P1, solveD1P2 } from "./day1";
 
 let testPuzzleText = 
-    "199\n" + 
-    "200\n" + 
-    "208\n" + 
-    "210\n" + 
-    "200\n" + 
-    "207\n" + 
-    "240\n" + 
-    "269\n" + 
-    "260\n" + 
+    "199\n" +
+    "200\n" +
+    "208\n" +
+    "210\n" +
+    "200\n" +
+    "207\n" +
+    "240\n" +
+    "269\n" +
+    "260\n" +
     "263\n";
 
 test('D1P1', t => {

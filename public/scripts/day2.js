@@ -4,10 +4,10 @@ import { puzzleInputToStringArray } from "./common";
 export function solveD2P1(puzzleText) {
     let puzzleArray = puzzleInputToStringArray(puzzleText);
     let submarinePosition = new SubmarinePosition();
-    puzzleArray.forEach(puzzleLine => {
+    for (let puzzleLine of puzzleArray) {
         let puzzleLineElements = puzzleLine.split(" ");
         submarinePosition.changePosition(puzzleLineElements[0], Number(puzzleLineElements[1]));
-    });
+    }
     return String(submarinePosition.depth * submarinePosition.horizontal);
 }
 // Using this new interpretation of the commands, calculate the horizontal position and depth you would have after following the planned course.
@@ -15,10 +15,10 @@ export function solveD2P1(puzzleText) {
 export function solveD2P2(puzzleText) {
     let puzzleArray = puzzleInputToStringArray(puzzleText);
     let submarinePosition = new SubmarinePositionExt();
-    puzzleArray.forEach(puzzleLine => {
+    for (let puzzleLine of puzzleArray) {
         let puzzleLineElements = puzzleLine.split(" ");
         submarinePosition.changePosition(puzzleLineElements[0], Number(puzzleLineElements[1]));
-    });
+    }
     return String(submarinePosition.depth * submarinePosition.horizontal);
 }
 class SubmarinePosition {
