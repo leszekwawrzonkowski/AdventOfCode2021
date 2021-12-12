@@ -1,11 +1,9 @@
-export function puzzleInputToStringArray(puzzleInput: string): string[] {
+export function puzzleInputToStringArray(puzzleInput) {
     return puzzleInput.trim().split(/\r?\n/);
 }
-
-export function puzzleInputToNumberArray(puzzleInput: string): number[] {
+export function puzzleInputToNumberArray(puzzleInput) {
     return puzzleInputToStringArray(puzzleInput).map(Number);
 }
-
 /*
 export enum PuzzleOutputArrayType {
     String,
@@ -18,4 +16,4 @@ export function puzzleInputToArray(puzzleInput:string, puzzleOutputArrayType: Pu
     }
     puzzleElements;
 }
-*/
+*/ 

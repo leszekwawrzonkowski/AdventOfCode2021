@@ -4,9 +4,9 @@
   "compilerOptions": {
     "incremental": true,
     "target": "es2015",
-    "outFile": "target/js/aoc2021.js",
+    "outDir": "public/scripts",
     "rootDir": "src/ts",
-    "tsBuildInfoFile": ".aoc2021-target.tsbuildinfo",
+    "tsBuildInfoFile": ".aoc2021-public.tsbuildinfo",
     "strict": true /* Enable all strict type-checking options. */,
     /* Strict Type-Checking Options */
     // "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
@@ -25,10 +25,7 @@
     "listEmittedFiles": false /* Print names of generated files part of the compilation. */,
     "listFiles": false /* Print names of files part of the compilation. */,
     "pretty": true /* Stylize errors and messages using color and context. */,
-    "lib": [
-      "es2015",
-      "dom"
-    ]
+    "lib": ["es2015", "dom"]
   },
   "include": [
     "src/ts/*.ts"

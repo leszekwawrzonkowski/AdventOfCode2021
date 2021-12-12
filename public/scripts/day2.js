@@ -1,16 +1,13 @@
 import { puzzleInputToStringArray } from "./common";
-
 // Calculate the horizontal position and depth you would have after following the planned course. 
 // What do you get if you multiply your final horizontal position by your final depth?
-export function solveD2P1(puzzleText: string): string {
+export function solveD2P1(puzzleText) {
     class SubmarinePosition {
-        horizontal: number;
-        depth: number;
         constructor() {
             this.horizontal = 0;
             this.depth = 0;
         }
-        changePosition(commandAndUnit: string) {
+        changePosition(commandAndUnit) {
             let commandAndUnitElements = commandAndUnit.split(" ");
             const command = commandAndUnitElements[0];
             let unit = Number(commandAndUnitElements[1]);
@@ -34,20 +31,16 @@ export function solveD2P1(puzzleText: string): string {
     });
     return String(submarinePosition.depth * submarinePosition.horizontal);
 }
-
 // Using this new interpretation of the commands, calculate the horizontal position and depth you would have after following the planned course.
 // What do you get if you multiply your final horizontal position by your final depth?
-export function solveD2P2(puzzleText: string): string {
+export function solveD2P2(puzzleText) {
     class SubmarinePosition {
-        horizontal: number;
-        depth: number;
-        aim: number;
         constructor() {
             this.horizontal = 0;
             this.depth = 0;
             this.aim = 0;
         }
-        changePosition(commandAndUnit: string) {
+        changePosition(commandAndUnit) {
             let commandAndUnitElements = commandAndUnit.split(" ");
             const command = commandAndUnitElements[0];
             let unit = Number(commandAndUnitElements[1]);

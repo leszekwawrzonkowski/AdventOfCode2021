@@ -1,8 +1,7 @@
 import { solveD1P1, solveD1P2 } from "./day1";
 import { solveD2P1, solveD2P2 } from "./day2";
 import { solveD3P1, solveD3P2 } from "./day3";
-
-function solvePuzzle(puzzleText: string, puzzleNumber: string | null): string {
+function solvePuzzle(puzzleText, puzzleNumber) {
     switch (puzzleNumber) {
         case "puzzle-D1P1":
             return solveD1P1(puzzleText);
@@ -17,13 +16,11 @@ function solvePuzzle(puzzleText: string, puzzleNumber: string | null): string {
         case "puzzle-D3P2":
             return solveD3P2(puzzleText);
     }
-
     return "not yet solved !!!";
 }
-
 const buttons = document.getElementsByClassName("aoc-btn");
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', function () {
-        (<HTMLInputElement>document.getElementById("textarea-task-output")).value = solvePuzzle((<HTMLInputElement>document.getElementById("textarea-task-input")).value, buttons[i].getAttribute("id"));
+        document.getElementById("textarea-task-output").value = solvePuzzle(document.getElementById("textarea-task-input").value, buttons[i].getAttribute("id"));
     });
 }

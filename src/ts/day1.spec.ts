@@ -1,6 +1,5 @@
-/// <reference path="day1.ts" />
-
 import test from 'ava';
+import { solveD1P1, solveD1P2 } from "./day1";
 
 let testPuzzleText = 
     "199\n" + 
@@ -15,5 +14,9 @@ let testPuzzleText =
     "263\n";
 
 test('D1P1', t => {
-    t.is(AoC2021.solveD1P1(testPuzzleText), "7");
+    t.is(solveD1P1(testPuzzleText), "7");
+});
+
+test('D1P2', t => {
+    t.is(solveD1P2(testPuzzleText), "5");
 });
