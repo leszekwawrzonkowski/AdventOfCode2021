@@ -26,6 +26,7 @@ export function solveD3P1(puzzleText: string): string {
     }
     return String(parseInt(gammaRate, 2) * parseInt(epsilonRate, 2));
 }
+
 // Verify the life support rating, which can be determined by multiplying the oxygen generator rating by the CO2 scrubber rating.
 export function solveD3P2(puzzleText: string): string {
     enum BitCriteria {
