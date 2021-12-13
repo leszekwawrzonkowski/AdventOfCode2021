@@ -14,15 +14,15 @@ function solve(puzzleText: string, numberOfDays: number): string {
         daysCounters[Number(puzzleElement)]++;
     }
     let numberOfDaysLeft = numberOfDays;
-    while (numberOfDaysLeft>0) {
+    while (numberOfDaysLeft > 0) {
         let newBorns = daysCounters[0];
         for (let i = 1; i < daysCounters.length; i++) {
             if (i === 7) {
-                daysCounters[i-1] = daysCounters[i] + newBorns; // newBorns same as "fresh parents" (original daysCounters[0])
+                daysCounters[i - 1] = daysCounters[i] + newBorns; // newBorns same as "fresh parents" (original daysCounters[0])
             }
-            else daysCounters[i-1] = daysCounters[i];
+            else daysCounters[i - 1] = daysCounters[i];
         }
-        daysCounters[daysCounters.length-1] = newBorns;
+        daysCounters[daysCounters.length - 1] = newBorns;
         numberOfDaysLeft--;
     }
 

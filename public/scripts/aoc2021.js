@@ -4,6 +4,7 @@ import { solveD3P1, solveD3P2 } from "./day3";
 import { solveD4P1, solveD4P2 } from "./day4";
 import { solveD5P1, solveD5P2 } from "./day5";
 import { solveD6P1, solveD6P2 } from "./day6";
+import { solveD7P1 } from "./day7";
 function solvePuzzle(puzzleText, puzzleNumber) {
     switch (puzzleNumber) {
         case "puzzle-D1P1":
@@ -30,6 +31,8 @@ function solvePuzzle(puzzleText, puzzleNumber) {
             return solveD6P1(puzzleText);
         case "puzzle-D6P2":
             return solveD6P2(puzzleText);
+        case "puzzle-D7P1":
+            return solveD7P1(puzzleText);
     }
     return "not yet solved !!!";
 }

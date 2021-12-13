@@ -32,7 +32,7 @@ function solve(puzzleText: string, diagonalLines: boolean): string {
 
     let sumProperVentPoints = 0;
     for (let ventPoint of ventPointsMap.values()) {
-        if(ventPoint.ventCount > 1) sumProperVentPoints++;
+        if (ventPoint.ventCount > 1) sumProperVentPoints++;
     }
 
     return String(sumProperVentPoints);
@@ -41,21 +41,21 @@ function solve(puzzleText: string, diagonalLines: boolean): string {
 function generateLineOfVentPoints(x1: number, y1: number, x2: number, y2: number, diagonalLines: boolean): VentPoint[] {
     let ventPoints = new Array<VentPoint>();
     if (x1 === x2) {
-        for (let i = Math.min(y1,y2); i <= Math.max(y1,y2); i++) ventPoints.push(new VentPoint(x1, i));
+        for (let i = Math.min(y1, y2); i <= Math.max(y1, y2); i++) ventPoints.push(new VentPoint(x1, i));
     }
     else if (y1 === y2) {
-        for (let i = Math.min(x1,x2); i <= Math.max(x1,x2); i++) ventPoints.push(new VentPoint(i, y1));
+        for (let i = Math.min(x1, x2); i <= Math.max(x1, x2); i++) ventPoints.push(new VentPoint(i, y1));
     }
-    else if(diagonalLines && Math.abs(x1-x2) === Math.abs(y1-y2)) {
-        const len = Math.abs(x1-x2);
-        const minX = Math.min(x1,x2);
-        if ((x1<x2 && y1<y2) || (x2<x1 && y2<y1)) {
-            const minY = Math.min(y1,y2);
-            for (let i = 0; i <= len; i++) ventPoints.push(new VentPoint(minX+i, minY+i));
+    else if (diagonalLines && Math.abs(x1 - x2) === Math.abs(y1 - y2)) {
+        const len = Math.abs(x1 - x2);
+        const minX = Math.min(x1, x2);
+        if ((x1 < x2 && y1 < y2) || (x2 < x1 && y2 < y1)) {
+            const minY = Math.min(y1, y2);
+            for (let i = 0; i <= len; i++) ventPoints.push(new VentPoint(minX + i, minY + i));
         }
         else {
             const maxY = Math.max(y1,y2);
-            for (let i = 0; i <= len; i++) ventPoints.push(new VentPoint(minX+i, maxY-i));
+            for (let i = 0; i <= len; i++) ventPoints.push(new VentPoint(minX + i, maxY - i));
         }
     }
 
