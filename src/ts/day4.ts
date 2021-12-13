@@ -2,9 +2,9 @@ import { puzzleInputToStringArray } from "./common";
 
 // To guarantee victory against the giant squid, figure out which board will win first. What will your final score be if you choose that board?
 export function solveD4P1(puzzleText: string): string {
-    let puzzleArray = puzzleInputToStringArray(puzzleText);
-    let numbersOrder = puzzleArray[0].split(",");
-    let boards = initBoards(puzzleArray);
+    const puzzleArray = puzzleInputToStringArray(puzzleText);
+    const numbersOrder = puzzleArray[0].split(",");
+    const boards = initBoards(puzzleArray);
 
     for (let num of numbersOrder) {
         let boardNumber: number = Number(num);
@@ -19,10 +19,10 @@ export function solveD4P1(puzzleText: string): string {
 
 // On the other hand, it might be wise to try a different strategy: let the giant squid win. Figure out which board will win last.
 export function solveD4P2(puzzleText: string): string {
-    let puzzleArray = puzzleInputToStringArray(puzzleText);
-    let numbersOrder = puzzleArray[0].split(",");
-    let boards = initBoards(puzzleArray);
-    let boardsMarks: boolean[] = new Array<boolean>(boards.length).fill(false);
+    const puzzleArray = puzzleInputToStringArray(puzzleText);
+    const numbersOrder = puzzleArray[0].split(",");
+    const boards = initBoards(puzzleArray);
+    const boardsMarks: boolean[] = new Array<boolean>(boards.length).fill(false);
 
     for (let num of numbersOrder) {
         let boardNumber: number = Number(num);
@@ -45,7 +45,7 @@ export function solveD4P2(puzzleText: string): string {
 }
 
 function initBoards(puzzleArray: string[]): BingoBoard[] {
-    let boards = new Array<BingoBoard>();
+    const boards = new Array<BingoBoard>();
 
     let boardNumbersArray: string[] = new Array<string>();
     for (let i = 2; i < puzzleArray.length; i++) {

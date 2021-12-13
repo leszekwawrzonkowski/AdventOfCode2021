@@ -1,9 +1,9 @@
 import { puzzleInputToStringArray } from "./common";
 // Use the binary numbers in your diagnostic report to calculate the gamma rate and epsilon rate, then multiply them together.
 export function solveD3P1(puzzleText) {
-    let puzzleArray = puzzleInputToStringArray(puzzleText);
-    let onesCounters = Array(puzzleArray[0].length).fill(0);
-    let zerosCounters = Array(puzzleArray[0].length).fill(0);
+    const puzzleArray = puzzleInputToStringArray(puzzleText);
+    const onesCounters = Array(puzzleArray[0].length).fill(0);
+    const zerosCounters = Array(puzzleArray[0].length).fill(0);
     for (let puzzle of puzzleArray) {
         let bitNums = Array.from(puzzle);
         for (let i = 0; i < bitNums.length; i++) {
@@ -29,7 +29,7 @@ export function solveD3P1(puzzleText) {
 }
 // Verify the life support rating, which can be determined by multiplying the oxygen generator rating by the CO2 scrubber rating.
 export function solveD3P2(puzzleText) {
-    let puzzleArray = puzzleInputToStringArray(puzzleText);
+    const puzzleArray = puzzleInputToStringArray(puzzleText);
     let bitIterator = 0;
     let inputArray = puzzleArray;
     while (inputArray.length > 1) {

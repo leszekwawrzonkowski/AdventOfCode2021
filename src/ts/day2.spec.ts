@@ -1,7 +1,7 @@
 import test from 'ava';
 import { solveD2P1, solveD2P2 } from "./day2";
 
-let testPuzzleText = 
+const testPuzzleText = 
     "forward 5\n" +
     "down 5\n" +
     "forward 8\n" +

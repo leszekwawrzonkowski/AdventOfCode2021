@@ -1,9 +1,9 @@
 import { puzzleInputToStringArray } from "./common";
 // To guarantee victory against the giant squid, figure out which board will win first. What will your final score be if you choose that board?
 export function solveD4P1(puzzleText) {
-    let puzzleArray = puzzleInputToStringArray(puzzleText);
-    let numbersOrder = puzzleArray[0].split(",");
-    let boards = initBoards(puzzleArray);
+    const puzzleArray = puzzleInputToStringArray(puzzleText);
+    const numbersOrder = puzzleArray[0].split(",");
+    const boards = initBoards(puzzleArray);
     for (let num of numbersOrder) {
         let boardNumber = Number(num);
         for (let board of boards) {
@@ -16,10 +16,10 @@ export function solveD4P1(puzzleText) {
 }
 // On the other hand, it might be wise to try a different strategy: let the giant squid win. Figure out which board will win last.
 export function solveD4P2(puzzleText) {
-    let puzzleArray = puzzleInputToStringArray(puzzleText);
-    let numbersOrder = puzzleArray[0].split(",");
-    let boards = initBoards(puzzleArray);
-    let boardsMarks = new Array(boards.length).fill(false);
+    const puzzleArray = puzzleInputToStringArray(puzzleText);
+    const numbersOrder = puzzleArray[0].split(",");
+    const boards = initBoards(puzzleArray);
+    const boardsMarks = new Array(boards.length).fill(false);
     for (let num of numbersOrder) {
         let boardNumber = Number(num);
         for (let i = 0; i < boards.length; i++) {
@@ -40,7 +40,7 @@ export function solveD4P2(puzzleText) {
     return "no all boards bingo found :(";
 }
 function initBoards(puzzleArray) {
-    let boards = new Array();
+    const boards = new Array();
     let boardNumbersArray = new Array();
     for (let i = 2; i < puzzleArray.length; i++) {
         if (puzzleArray[i].length > 0) {
