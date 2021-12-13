@@ -19,27 +19,18 @@ function solve(puzzleText, diagonalLines) {
         let y1 = Number(pointOneCoordinates[1]);
         let x2 = Number(pointTwoCoordinates[0]);
         let y2 = Number(pointTwoCoordinates[1]);
-        // console.log(`puzzle line: ${x1}-${y1},${x2}-${y2}`)
         let ventPointsLine = generateLineOfVentPoints(x1, y1, x2, y2, diagonalLines);
         for (let ventPoint of ventPointsLine) {
-            // console.log(`vent point on line: ${ventPoint.id}`)
-            if (ventPointsMap.has(ventPoint.id)) {
+            if (ventPointsMap.has(ventPoint.id))
                 (_a = ventPointsMap.get(ventPoint.id)) === null || _a === void 0 ? void 0 : _a.addVent();
-                // console.log("vent point count ++");
-            }
-            else {
+            else
                 ventPointsMap.set(ventPoint.id, ventPoint);
-                // console.log("vent point added");
-            }
         }
     }
-    // console.log("calculate sum");
     let sumProperVentPoints = 0;
     for (let ventPoint of ventPointsMap.values()) {
-        if (ventPoint.ventCount > 1) {
+        if (ventPoint.ventCount > 1)
             sumProperVentPoints++;
-            // console.log(`vent point to the sum: ${ventPoint.id}`)
-        }
     }
     return String(sumProperVentPoints);
 }
