@@ -13,7 +13,7 @@ const testPuzzleText =
  "0,0 -> 8,8\n" +
  "5,5 -> 8,2\n";
 
- test('D5P1', t => {
+test('D5P1', t => {
     t.is(solveD5P1(testPuzzleText), "5");
 });
 
