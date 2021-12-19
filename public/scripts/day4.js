@@ -1,5 +1,10 @@
 import { puzzleInputToStringArray } from "./common";
-// To guarantee victory against the giant squid, figure out which board will win first. What will your final score be if you choose that board?
+/**
+ * To guarantee victory against the giant squid, figure out which board will win first. What will your final score be if you choose that board?
+ *
+ * @param puzzleText A puzzle text
+ * @returns The solution
+ */
 export function solveD4P1(puzzleText) {
     const puzzleArray = puzzleInputToStringArray(puzzleText);
     const numbersOrder = puzzleArray[0].split(",");
@@ -14,7 +19,12 @@ export function solveD4P1(puzzleText) {
     }
     return "no bingo found :(";
 }
-// On the other hand, it might be wise to try a different strategy: let the giant squid win. Figure out which board will win last.
+/**
+ * On the other hand, it might be wise to try a different strategy: let the giant squid win. Figure out which board will win last.
+ *
+ * @param puzzleText A puzzle text
+ * @returns The solution
+ */
 export function solveD4P2(puzzleText) {
     const puzzleArray = puzzleInputToStringArray(puzzleText);
     const numbersOrder = puzzleArray[0].split(",");
@@ -39,6 +49,12 @@ export function solveD4P2(puzzleText) {
     }
     return "no all boards bingo found :(";
 }
+/**
+ * It initialize a set bingo boards based on puzzle input.
+ *
+ * @param puzzleArray A puzzle input
+ * @returns The set of bingo boards.
+ */
 function initBoards(puzzleArray) {
     const boards = new Array();
     let boardNumbersArray = new Array();
@@ -54,6 +70,9 @@ function initBoards(puzzleArray) {
     boards.push(new BingoBoard(boardNumbersArray));
     return boards;
 }
+/**
+ * It represents a single bingo board. It can mark a given number, check wining and calculate the score.
+ */
 class BingoBoard {
     constructor(boardNumbersArray) {
         this.size = 5;
@@ -71,6 +90,11 @@ class BingoBoard {
             }
         }
     }
+    /**
+     * It marks given number on the board.
+     *
+     * @param boardNumber A number to mark.
+     */
     markNumber(boardNumber) {
         for (let i = 0; i < this.numbers.length; i++) {
             for (let j = 0; j < this.numbers.length; j++) {
@@ -79,6 +103,9 @@ class BingoBoard {
             }
         }
     }
+    /**
+     * Checks is it wins.
+     */
     wins() {
         let result = false;
         for (let i = 0; i < this.numbers.length; i++) {
@@ -97,6 +124,11 @@ class BingoBoard {
         }
         return result;
     }
+    /**
+     * It calculates the score of this board based on the part two puzzle rules.
+     * @param boardNumber The last number which were marked
+     * @returns The score
+     */
     calculateScore(boardNumber) {
         let boardSum = 0;
         for (let i = 0; i < this.numbers.length; i++) {

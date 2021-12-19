@@ -1,6 +1,11 @@
 import { puzzleInputToNumberArray } from "./common";
 
-// How many measurements are larger than the previous measurement?
+/**
+ * How many measurements are larger than the previous measurement?
+ * 
+ * @param puzzleText A puzzle text
+ * @returns The solution
+ */
 export function solveD1P1(puzzleText: string): string {
     const puzzleArray = puzzleInputToNumberArray(puzzleText);
     let numberOfIncreases = 0;
@@ -10,7 +15,12 @@ export function solveD1P1(puzzleText: string): string {
     return String(numberOfIncreases);
 }
 
-// Count the number of times the sum of measurements in this sliding three-measurement window increases from the previous sum
+/**
+ * Count the number of times the sum of measurements in this sliding three-measurement window increases from the previous sum.
+ * 
+ * @param puzzleText A puzzle text
+ * @returns The solution
+ */
 export function solveD1P2(puzzleText: string): string {
     const puzzleArray = puzzleInputToNumberArray(puzzleText);
     let numberOfIncreases = 0;

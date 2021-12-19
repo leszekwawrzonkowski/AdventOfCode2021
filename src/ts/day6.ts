@@ -1,13 +1,31 @@
-// Find a way to simulate lanternfish. How many lanternfish would there be after 80 days?
+/**
+ * Find a way to simulate lanternfish. How many lanternfish would there be after 80 days?
+ * 
+ * @param puzzleText A puzzle text
+ * @returns The solution
+ */
 export function solveD6P1(puzzleText: string): string {
     return solve(puzzleText, 80);
 }
 
-// Find a way to simulate lanternfish. How many lanternfish would there be after 256 days?
+/**
+ * Find a way to simulate lanternfish. How many lanternfish would there be after 256 days?
+ * 
+ * @param puzzleText A puzzle text
+ * @returns The solution
+ */
 export function solveD6P2(puzzleText: string): string {
     return solve(puzzleText, 256);
 }
 
+/**
+ * It solves a puzzle for both parts. Depends of a days number.
+ * It counts number of lanternfish for each day and sum it at the end of time period.
+ * 
+ * @param puzzleText A puzzle text
+ * @param numberOfDays How many days lanternfish school grows
+ * @returns Sum of all lanternfish
+ */
 function solve(puzzleText: string, numberOfDays: number): string {
     let daysCounters = new Array<number>(9).fill(0);
     for (let puzzleElement of puzzleText.trim().split(",")) {

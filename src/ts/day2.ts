@@ -1,7 +1,12 @@
 import { puzzleInputToStringArray } from "./common";
 
-// Calculate the horizontal position and depth you would have after following the planned course. 
-// What do you get if you multiply your final horizontal position by your final depth?
+/**
+ * Calculate the horizontal position and depth you would have after following the planned course.
+ * What do you get if you multiply your final horizontal position by your final depth?
+ * 
+ * @param puzzleText A puzzle text
+ * @returns The solution
+ */
 export function solveD2P1(puzzleText: string): string {
     const puzzleArray = puzzleInputToStringArray(puzzleText);
     const submarinePosition = new SubmarinePosition();
@@ -12,8 +17,13 @@ export function solveD2P1(puzzleText: string): string {
     return String(submarinePosition.depth * submarinePosition.horizontal);
 }
 
-// Using this new interpretation of the commands, calculate the horizontal position and depth you would have after following the planned course.
-// What do you get if you multiply your final horizontal position by your final depth?
+/**
+ * Using this new interpretation of the commands, calculate the horizontal position and depth you would have after following the planned course.
+ * What do you get if you multiply your final horizontal position by your final depth?
+ * 
+ * @param puzzleText A puzzle text
+ * @returns The solution
+ */
 export function solveD2P2(puzzleText: string): string {
     const puzzleArray = puzzleInputToStringArray(puzzleText);
     const submarinePosition = new SubmarinePositionExt();
@@ -24,6 +34,9 @@ export function solveD2P2(puzzleText: string): string {
     return String(submarinePosition.depth * submarinePosition.horizontal);
 }
 
+/**
+ * It represents a submarine position, for part one puzzle, and can change it.
+ */
 class SubmarinePosition {
     horizontal: number;
     depth: number;
@@ -48,6 +61,9 @@ class SubmarinePosition {
     }
 }
 
+/**
+ * It represents a submarine position, for part two puzzle, and can change it.
+ */
 class SubmarinePositionExt extends SubmarinePosition {
     aim: number;
 

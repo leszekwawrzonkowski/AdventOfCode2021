@@ -7,6 +7,13 @@ import { solveD6P1, solveD6P2 } from "./day6";
 import { solveD7P1, solveD7P2 } from "./day7";
 import { solveD8P1, solveD8P2 } from "./day8";
 
+/**
+ * It triggers solving logic for each puzzle.
+ * 
+ * @param puzzleText A puzzle input
+ * @param puzzleNumber A puzzle identifier
+ * @returns The puzzle solution
+ */
 function solvePuzzle(puzzleText: string, puzzleNumber: string | null): string {
     switch (puzzleNumber) {
         case "puzzle-D1P1":

@@ -1,5 +1,10 @@
 import { puzzleInputToStringArray } from "./common";
-// Use the binary numbers in your diagnostic report to calculate the gamma rate and epsilon rate, then multiply them together.
+/**
+ * Use the binary numbers in your diagnostic report to calculate the gamma rate and epsilon rate, then multiply them together.
+ *
+ * @param puzzleText A puzzle text
+ * @returns The solution
+ */
 export function solveD3P1(puzzleText) {
     const puzzleArray = puzzleInputToStringArray(puzzleText);
     const onesCounters = Array(puzzleArray[0].length).fill(0);
@@ -27,7 +32,12 @@ export function solveD3P1(puzzleText) {
     }
     return String(parseInt(gammaRate, 2) * parseInt(epsilonRate, 2));
 }
-// Verify the life support rating, which can be determined by multiplying the oxygen generator rating by the CO2 scrubber rating.
+/**
+ * Verify the life support rating, which can be determined by multiplying the oxygen generator rating by the CO2 scrubber rating.
+ *
+ * @param puzzleText A puzzle text
+ * @returns The solution
+ */
 export function solveD3P2(puzzleText) {
     const puzzleArray = puzzleInputToStringArray(puzzleText);
     let bitIterator = 0;
@@ -51,6 +61,14 @@ var BitCriteria;
     BitCriteria[BitCriteria["Oxygen"] = 0] = "Oxygen";
     BitCriteria[BitCriteria["Co2"] = 1] = "Co2";
 })(BitCriteria || (BitCriteria = {}));
+/**
+ * It eliminates entries from the given array taking into account bit position and bit criteria.
+ *
+ * @param initArray An array which elements will be eliminated
+ * @param bitNo A bit number
+ * @param criteria A bit criteria
+ * @returns The array after elements elimination
+ */
 function discardArrayElemets(initArray, bitNo, criteria) {
     let wantedValue = "0";
     let onesCounter = 0;

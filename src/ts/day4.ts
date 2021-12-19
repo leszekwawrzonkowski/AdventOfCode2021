@@ -1,6 +1,11 @@
 import { puzzleInputToStringArray } from "./common";
 
-// To guarantee victory against the giant squid, figure out which board will win first. What will your final score be if you choose that board?
+/**
+ * To guarantee victory against the giant squid, figure out which board will win first. What will your final score be if you choose that board?
+ * 
+ * @param puzzleText A puzzle text
+ * @returns The solution
+ */
 export function solveD4P1(puzzleText: string): string {
     const puzzleArray = puzzleInputToStringArray(puzzleText);
     const numbersOrder = puzzleArray[0].split(",");
@@ -17,7 +22,12 @@ export function solveD4P1(puzzleText: string): string {
     return "no bingo found :(";
 }
 
-// On the other hand, it might be wise to try a different strategy: let the giant squid win. Figure out which board will win last.
+/**
+ * On the other hand, it might be wise to try a different strategy: let the giant squid win. Figure out which board will win last.
+ * 
+ * @param puzzleText A puzzle text
+ * @returns The solution
+ */
 export function solveD4P2(puzzleText: string): string {
     const puzzleArray = puzzleInputToStringArray(puzzleText);
     const numbersOrder = puzzleArray[0].split(",");
@@ -44,6 +54,12 @@ export function solveD4P2(puzzleText: string): string {
     return "no all boards bingo found :(";
 }
 
+/**
+ * It initialize a set bingo boards based on puzzle input.
+ * 
+ * @param puzzleArray A puzzle input
+ * @returns The set of bingo boards.
+ */
 function initBoards(puzzleArray: string[]): BingoBoard[] {
     const boards = new Array<BingoBoard>();
 
@@ -62,6 +78,9 @@ function initBoards(puzzleArray: string[]): BingoBoard[] {
     return boards;
 }
 
+/**
+ * It represents a single bingo board. It can mark a given number, check wining and calculate the score.
+ */
 class BingoBoard {
     private size = 5;
     numbers: number[][];
@@ -85,6 +104,11 @@ class BingoBoard {
         }
     }
 
+    /**
+     * It marks given number on the board.
+     * 
+     * @param boardNumber A number to mark.
+     */
     markNumber(boardNumber: number) {
         for (let i = 0; i < this.numbers.length; i++) {
             for (let j = 0; j < this.numbers.length; j++) {
@@ -93,6 +117,9 @@ class BingoBoard {
         }
     }
 
+    /**
+     * Checks is it wins.
+     */
     wins(): boolean {
         let result = false;
         for (let i = 0; i < this.numbers.length; i++) {
@@ -110,6 +137,11 @@ class BingoBoard {
         return result;
     }
 
+    /**
+     * It calculates the score of this board based on the part two puzzle rules.
+     * @param boardNumber The last number which were marked
+     * @returns The score
+     */
     calculateScore(boardNumber: number): number {
         let boardSum = 0;
         for (let i = 0; i < this.numbers.length; i++) {

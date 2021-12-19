@@ -1,12 +1,28 @@
 import { puzzleInputToStringArray } from "./common";
-// Consider only horizontal and vertical lines. At how many points do at least two lines overlap?
+/**
+ * Consider only horizontal and vertical lines. At how many points do at least two lines overlap?
+ *
+ * @param puzzleText A puzzle text
+ * @returns The solution
+ */
 export function solveD5P1(puzzleText) {
     return solve(puzzleText, false);
 }
-// Consider horizontal, vertical and diagonal lines. At how many points do at least two lines overlap?
+/**
+ * Consider horizontal, vertical and diagonal lines. At how many points do at least two lines overlap?
+ *
+ * @param puzzleText A puzzle text
+ * @returns The solution
+ */
 export function solveD5P2(puzzleText) {
     return solve(puzzleText, true);
 }
+/**
+ * It solves a puzzle for both parts. Diagonal lines are taking into account optionally.
+ * @param puzzleText A puzzle text
+ * @param diagonalLines Take into account diagonal lines
+ * @returns The solution
+ */
 function solve(puzzleText, diagonalLines) {
     var _a;
     const puzzleArray = puzzleInputToStringArray(puzzleText);
@@ -34,6 +50,17 @@ function solve(puzzleText, diagonalLines) {
     }
     return String(sumProperVentPoints);
 }
+/**
+ * It generates a set of points for given two end points.
+ * It works for horizontal, vertical and diagonal lines. For others it returns the empty set.
+ *
+ * @param x1 A x coordinate of the first end point
+ * @param y1 A y coordinate of the first end point
+ * @param x2 A x coordinate of the second end point
+ * @param y2 A y coordinate of the second end point
+ * @param diagonalLines Take into account diagonal lines
+ * @returns The set of points
+ */
 function generateLineOfVentPoints(x1, y1, x2, y2, diagonalLines) {
     let ventPoints = new Array();
     if (x1 === x2) {
@@ -60,6 +87,9 @@ function generateLineOfVentPoints(x1, y1, x2, y2, diagonalLines) {
     }
     return ventPoints;
 }
+/**
+ * It represents a vent point.
+ */
 class VentPoint {
     constructor(x, y) {
         this.x = x;

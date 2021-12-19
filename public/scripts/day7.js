@@ -1,6 +1,11 @@
-// Determine the horizontal position that the crabs can align to using the least fuel possible.
-// When each change of 1 step in horizontal position of a single crab costs 1 fuel.
-// How much fuel must they spend to align to that position?
+/**
+ * Determine the horizontal position that the crabs can align to using the least fuel possible.
+ * When each change of 1 step in horizontal position of a single crab costs 1 fuel.
+ * How much fuel must they spend to align to that position?
+ *
+ * @param puzzleText A puzzle text
+ * @returns The solution
+ */
 export function solveD7P1(puzzleText) {
     // calculate the median is the good way to find the best position 
     const crabsPositionsSorted = puzzleText.trim().split(",").map(Number).sort((a, b) => a - b); // sorted elements
@@ -19,9 +24,14 @@ export function solveD7P1(puzzleText) {
     }
     return String(movesSum);
 }
-// Determine the horizontal position that the crabs can align to using the least fuel possible.
-// When each change of 1 step in horizontal position costs 1 more unit of fuel than the last
-// How much fuel must they spend to align to that position?
+/**
+ * Determine the horizontal position that the crabs can align to using the least fuel possible.
+ * When each change of 1 step in horizontal position costs 1 more unit of fuel than the last
+ * How much fuel must they spend to align to that position?
+ *
+ * @param puzzleText A puzzle text
+ * @returns The solution
+ */
 export function solveD7P2(puzzleText) {
     // calculate the arithmetic mean is the good start point to find the best position and after that check up and down 
     const crabsPositions = puzzleText.trim().split(",").map(Number);
@@ -38,6 +48,15 @@ export function solveD7P2(puzzleText) {
     movesSum = tuneMovesSum(crabsPositions, movesSum, bestPosition, 1);
     return String(movesSum);
 }
+/**
+ * It checks moves sum, starting from the current best position, and going by given step until it is not smaller.
+ *
+ * @param crabsPositions A list of crabs positions
+ * @param movesSum A current moves sum
+ * @param bestPosition The current best position
+ * @param step A step between the current best position and the new one
+ * @returns The new moves sum, smaller or the same
+ */
 function tuneMovesSum(crabsPositions, movesSum, bestPosition, step) {
     while (true) {
         let tmpMovesSum = 0;
