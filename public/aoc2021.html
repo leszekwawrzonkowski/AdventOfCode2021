@@ -13,88 +13,40 @@
   <main>
     <div class="container py-4">
       <header class="pb-3 mb-4 border-bottom">
-
+        <span class="fs-4">
+          This is my try to solve some of the <a href="https://adventofcode.com/2021" target="_blank">Advent of Code 2021</a> puzzles with TypeScript - to learn its basics.
+        </span>
       </header>
       <div class="p-5 mb-4 bg-light rounded-3">
         <div class="container-fluid py-5">
           <div class="row">
-            <div class="col">
-              <textarea class="form-control" id="textarea-task-input" rows="15" placeholder="Place task input here ..."></textarea>
-            </div>
-            <div class="col">
-              <div class="row py-2">
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="button" class="btn btn-primary aoc-btn" id="puzzle-D1P1">Day 1 Part 1</button>
-                </div>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="button" class="btn btn-primary aoc-btn" id="puzzle-D1P2">Day 1 Part 2</button>
-                </div>
+            <div class="col-4">
+              <div class="row">
+                <p>Task input:</p>
               </div>
-              <div class="row py-2">
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="button" class="btn btn-primary aoc-btn" id="puzzle-D2P1">Day 2 Part 1</button>
-                </div>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="button" class="btn btn-primary aoc-btn" id="puzzle-D2P2">Day 2 Part 2</button>
-                </div>
-              </div>
-              <div class="row py-2">
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="button" class="btn btn-primary aoc-btn" id="puzzle-D3P1">Day 3 Part 1</button>
-                </div>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="button" class="btn btn-primary aoc-btn" id="puzzle-D3P2">Day 3 Part 2</button>
-                </div>
-              </div>
-              <div class="row py-2">
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="button" class="btn btn-primary aoc-btn" id="puzzle-D4P1">Day 4 Part 1</button>
-                </div>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="button" class="btn btn-primary aoc-btn" id="puzzle-D4P2">Day 4 Part 2</button>
-                </div>
-              </div>
-              <div class="row py-2">
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="button" class="btn btn-primary aoc-btn" id="puzzle-D5P1">Day 5 Part 1</button>
-                </div>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="button" class="btn btn-primary aoc-btn" id="puzzle-D5P2">Day 5 Part 2</button>
-                </div>
-              </div>
-              <div class="row py-2">
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="button" class="btn btn-primary aoc-btn" id="puzzle-D6P1">Day 6 Part 1</button>
-                </div>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="button" class="btn btn-primary aoc-btn" id="puzzle-D6P2">Day 6 Part 2</button>
-                </div>
-              </div>
-              <div class="row py-2">
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="button" class="btn btn-primary aoc-btn" id="puzzle-D7P1">Day 7 Part 1</button>
-                </div>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="button" class="btn btn-primary aoc-btn" id="puzzle-D7P2">Day 7 Part 2</button>
-                </div>
-              </div>
-              <div class="row py-2">
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="button" class="btn btn-primary aoc-btn" id="puzzle-D8P1">Day 8 Part 1</button>
-                </div>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                  <button type="button" class="btn btn-primary aoc-btn" id="puzzle-D8P2">Day 8 Part 2</button>
-                </div>
+              <div class="row">
+                <textarea class="form-control" id="textarea-task-input" rows="15" placeholder="Place task input here ..."></textarea>
               </div>
             </div>
-            <div class="col">
-              <textarea class="form-control" id="textarea-task-output" rows="3" placeholder="Task output will be shown here ..." disabled readonly></textarea>
+            <div class="col-4" id="task-logic-div">
+              <div class="row">
+                <p>Choose task logic:</p>
+              </div>
+              <!-- The rest of the content here is generated dynamically -->
+            </div>
+            <div class="col-4">
+              <div class="row">
+                <p>Task output:</p>
+              </div>
+              <div class="row">
+                <textarea class="form-control" id="textarea-task-output" rows="3" placeholder="Task output will be shown here ..." disabled readonly></textarea>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <footer class="pt-3 mt-4 text-muted border-top">
-        &copy; 2021
+        Created by <a href="https://github.com/leszekwawrzonkowski" target="_blank">Leszek Wawrzonkowski</a> based on the <a href="https://getbootstrap.com/docs/5.1/examples/jumbotron/" target="_blank">Bootstrap Jumbotron example</a> &middot; &copy; 2021
       </footer>
     </div>
   </main>

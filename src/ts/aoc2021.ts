@@ -53,9 +53,33 @@ function solvePuzzle(puzzleText: string, puzzleNumber: string | null): string {
     return "not yet solved !!!";
 }
 
-const buttons = document.getElementsByClassName("aoc-btn");
-for (let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener('click', function () {
-        (<HTMLInputElement>document.getElementById("textarea-task-output")).value = solvePuzzle((<HTMLInputElement>document.getElementById("textarea-task-input")).value, buttons[i].getAttribute("id"));
-    });
+/**
+ * It generates a page content to solve puzzles by pressing buttons. It generates buttons for a given days number.
+ * 
+ * @param dayNumbers A number of days
+ */
+function addDaysButtonsToTaskLogicDiv(dayNumbers: number) {
+    const taskLogicDiv = document.getElementById("task-logic-div");
+    for (let dayNumber = 1; dayNumber <= dayNumbers; dayNumber++) {
+        const divRow = document.createElement('div');
+        divRow.classList.add("row", "py-2");
+        for (let partNumber = 1; partNumber < 3; partNumber++) {
+            const divPart = document.createElement('div');
+            divPart.classList.add("d-grid", "gap-2", "col-6", "mx-auto");
+            const button = document.createElement('button');
+            button.type = "button"
+            button.classList.add("btn", "btn-primary");
+            button.id = `puzzle-D${dayNumber}P${partNumber}`;
+            button.innerHTML = `Day ${dayNumber} Part ${partNumber}`;
+            button.addEventListener('click', function () {
+                (<HTMLInputElement>document.getElementById("textarea-task-output")).value = solvePuzzle((<HTMLInputElement>document.getElementById("textarea-task-input")).value, button.getAttribute("id"));
+            });
+            divPart.appendChild(button);
+            divRow.appendChild(divPart);
+        }
+        taskLogicDiv?.appendChild(divRow);
+    }
 }
+
+// Let's trigger buttons generation for implemented days
+addDaysButtonsToTaskLogicDiv(8);
