@@ -1,5 +1,5 @@
 ### build as module for tests ###
-build/
+ava-tests/
 
 ### node modules ###
 node_modules/

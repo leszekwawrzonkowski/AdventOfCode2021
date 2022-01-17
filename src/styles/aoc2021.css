@@ -1,0 +1,22 @@
+#pageContent {
+    background-color: var(--bs-gray-100);
+}
+
+/* dark theme */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--bs-gray-800);
+    }
+    header {
+        color: var(--bs-gray-400);
+    }
+    #pageContent {
+        background-color: var(--bs-gray-500);
+    }
+    textarea.form-control {
+        background-color: var(--bs-gray-200);
+    }
+    textarea.form-control:disabled {
+        background-color: var(--bs-gray-300);
+    }
+}

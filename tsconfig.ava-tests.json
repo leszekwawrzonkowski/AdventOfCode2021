@@ -4,14 +4,14 @@
   "compilerOptions": {
     "incremental": true,
     "target": "es2015",
-    "outDir": "build/ts",
-    "rootDir": "src/ts",
+    "outDir": "./ava-tests/scripts",
+    "rootDir": "./src/scripts",
     "module": "commonjs",
     "moduleResolution": "node",
-    "tsBuildInfoFile": ".aoc2021-module.tsbuildinfo",
+    "tsBuildInfoFile": ".aoc2021-ava-tests.tsbuildinfo",
     "strict": true /* Enable all strict type-checking options. */,
     /* Strict Type-Checking Options */
-    // "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
+    "noImplicitAny": true /* Raise error on expressions and declarations with an implied 'any' type. */,
     // "strictNullChecks": true /* Enable strict null checks. */,
     // "strictFunctionTypes": true /* Enable strict checking of function types. */,
     // "strictPropertyInitialization": true /* Enable strict checking of property initialization in classes. */,
@@ -30,7 +30,7 @@
     "lib": ["es2015", "dom"]
   },
   "include": [
-    "src/ts/*.ts"
+    "./src/scripts/*.ts"
   ],
   "exclude": [
     "node_modules/**"
